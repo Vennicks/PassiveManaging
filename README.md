@@ -18,6 +18,7 @@ To set what's happening:
   - When removed, override UPassiveObject::OnRemove function.
 
 🔴 **/!\ Warning:** ALWAYS CALL SUPER, This can break stacking logic
+
 🔴 **/!\ Warning:** Think about authority
 
 ## How to use ?
