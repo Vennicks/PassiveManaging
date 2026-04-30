@@ -24,7 +24,7 @@ class GAME_API UPassiveObject : public UObject
 
 public:
     UFUNCTION(BlueprintCallable, Category="PassivesHandling | Maker")
-    static UPassiveObject* MakePassive(FPassiveDefinition Definition, ACharacter* CurrentPlayer, FGuid Guid,
+    static UPassiveObject* MakePassive(FPassiveDefinition Definition, AActor* Actor, FGuid Guid,
                                  UObject* PassiveInstigator);
 
     UPROPERTY(Replicated, BlueprintReadOnly)
@@ -54,7 +54,7 @@ public:
     bool const IsAlive();
 
     UFUNCTION(BlueprintCallable, Category="PassivesHandling | Getter")
-    TArray<TEnumAsByte<ECharacterStatus>> GetStatusModifiers() { return StatusModifiers; }
+    TArray<TEnumAsByte<EStatus>> GetStatusModifiers() { return StatusModifiers; }
 
 
     UFUNCTION(BlueprintCallable, Category = "PassivesHandling | Getter")
@@ -102,10 +102,10 @@ protected:
 
 
     UPROPERTY(Replicated, BlueprintReadOnly)
-    TObjectPtr<ACharacter> Player;
+    TObjectPtr<AActor> CurrentActor;
 
     UPROPERTY()
-    TArray<TEnumAsByte<ECharacterStatus>> StatusModifiers;
+    TArray<TEnumAsByte<Status>> StatusModifiers;
 
     UPROPERTY()
     TObjectPtr<UNiagaraComponent> OnApplyVFXComponent = nullptr;

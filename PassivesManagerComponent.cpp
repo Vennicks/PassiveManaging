@@ -147,7 +147,6 @@ void UPassivesManagerComponent::AddPassive(FPassiveDefinition Definition, FGuid 
             }
         }
 
-        ACharacter* owner = Cast<ACharacter>(GetOwner());
         UPassiveObject* NewPassive = UPassiveObject::MakePassive(Definition, owner, Guid, Instigator);
 
         if (PlaceToModify == -1)

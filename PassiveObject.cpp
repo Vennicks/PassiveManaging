@@ -10,7 +10,7 @@
 #include "Net/UnrealNetwork.h"
 
 
-UPassiveObject* UPassiveObject::MakePassive(FPassiveDefinition Definition, ACharacter* CurrentPlayer, FGuid Guid,
+UPassiveObject* UPassiveObject::MakePassive(FPassiveDefinition Definition, AActor* Actor, FGuid Guid,
                                    UObject* PassiveInstigator)
 {
     UPassiveObject* NewPassive;
@@ -19,7 +19,7 @@ UPassiveObject* UPassiveObject::MakePassive(FPassiveDefinition Definition, AChar
         //Insert different types of Passiveclass
     default:
         UE_LOG(LogTemp, Error, TEXT("Trying to create an unset Passive."));
-        NewPassive = NewObject<UPassiveObject>(CurrentPlayer->PassivesManager);
+        NewPassive = NewObject<UPassiveObject>(Actor->FindComponentByClass<UPassivesManagerComponent>(););
     }
 
     //Copy modifier
@@ -28,7 +28,7 @@ UPassiveObject* UPassiveObject::MakePassive(FPassiveDefinition Definition, AChar
     NewPassive->Instigator = PassiveInstigator;
     NewPassive->Guid = Guid;
 
-    NewPassive->Player = CurrentPlayer;
+    NewPassive->CurrentActor = Actor;
     return NewPassive;
 }
 
