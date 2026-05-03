@@ -20,9 +20,9 @@ To set what's happening:
   - When applied, override UPassiveObject::OnApply function.
   - When removed, override UPassiveObject::OnRemove function.
 
-🔴 **/!\ Warning:** ALWAYS CALL SUPER, This can break stacking logic
+🔴 **Warning:** ALWAYS CALL SUPER, This can break stacking logic
 
-🔴 **/!\ Warning:** Think about authority
+🔴 **Warning:** Think about authority
 
 ## How to use ?
 This manager used to be on a pawn/character, but depending on how you tweak your passive you can put it on pretty much every actors, that's up to you.
